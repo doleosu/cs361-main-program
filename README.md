@@ -6,6 +6,7 @@ To request sorted data from the microservice send a POST request to http://local
 
 Example of requesting data:
 
+// requesting data
 fetch('http://localhost:5001/sort-events', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -34,7 +35,8 @@ B. How to programmatically RECEIVE data
 
 Use the following example to receivethe sorted data from the microservice:
 
-fetch('http://localhost:5001/sort-events', { /* request options as above */ })
+// receiving data
+fetch('http://localhost:5001/sort-events')
     .then(response => response.json())  // parse JSON response
     .then(sortedEvents => {
         
