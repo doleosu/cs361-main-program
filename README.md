@@ -6,6 +6,7 @@ To request sorted data from the microservice send a POST request to http://local
 
 Example of requesting data:
 
+```js
 // requesting data
 fetch('http://localhost:5001/sort-events', {
     method: 'POST',
@@ -13,14 +14,14 @@ fetch('http://localhost:5001/sort-events', {
     body: JSON.stringify({
         events: [
             {
-                date: '2025-05-20T00:00:00.000Z',
+                date: '2025-05-20',
                 artist: 'The Weeknd',
                 description: 'Kissland',
                 location: 'Chicago, IL'
             },
             {
-                date: '2025-06-10T00:00:00.000Z',
-                artist: 'Adele',
+                date: '2025-06-10',
+                artist: 'BLACKPINK',
                 description: '25 Tour',
                 location: 'New York, NY'
             }
@@ -28,13 +29,14 @@ fetch('http://localhost:5001/sort-events', {
         order: 'asc'
     })
 });
-
+```
 The microservice will then, sort the data and then send it back to your server, in order to receive the data, see the example below.
 
 B. How to programmatically RECEIVE data
 
 Use the following example to receivethe sorted data from the microservice:
 
+```js
 // receiving data
 fetch('http://localhost:5001/sort-events')
     .then(response => response.json())  // parse JSON response
@@ -43,5 +45,6 @@ fetch('http://localhost:5001/sort-events')
         // update the display
         renderEvents(sortedEvents);
     });
+```
 
 C. UML Sequence Diagram
