@@ -48,3 +48,5 @@ fetch('http://localhost:5001/sort-events')
 ```
 
 C. UML Sequence Diagram
+
+![UML Sequence Diagram](./UML%20Diagram.png)
