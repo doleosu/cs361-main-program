@@ -10,6 +10,13 @@ class Package:
         self.estDD = estDD
         self.user_ticket = user_ticket
 
+def trigger_email_notification(package):
+    if package.status.lower() == "delivered":
+        admin_email = "dole@oregonstate.edu"
+        with open("io/email-service.txt", "w") as f:
+            f.write(f"{package.track_num}|{admin_email}")
+
+
 package_1 = Package(123, "in-transit", "Los Angeles, CA", "Suite 892 9766 Price Street, New Blakeshire, RI 40004-5202", "Harry Husky", "11/04/2025")
 package_2 = Package(456, "delivered", "Portland, OR", "Apt. 926 845 Madie Extension, South Burlshire, OR 63377", "Benny Beaver", "12/25/2025")
 package_3 = Package(789, "preparing for delivery", "Los Angeles, CA", "8680 Sipes Junction, Gibsonchester, WV 89796-5190", "Random_per", "11/22/2025")
@@ -239,6 +246,7 @@ def track_package_menu():
 
         for package in package_list:
             if package.track_num == user_input:
+                trigger_email_notification(package)
                 search_results(package)
                 return
             
